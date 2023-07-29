@@ -5,7 +5,7 @@
 #include <unistd.h>
 
 /**
- * infinite_while - Run an infinite while loop.
+ * infinite_while - a C function that runs an infinite while loop.
  *
  * Return: Always 0.
  */
@@ -19,7 +19,8 @@ int infinite_while(void)
 }
 
 /**
- * create_zombie - Create a zombie process and return its PID.
+ * create_zombie - a C function that creates a zombie process and
+ * return its PID.
  *
  * Return: PID of the zombie process.
  */
@@ -29,7 +30,6 @@ pid_t create_zombie(void)
 
 	if (pid > 0)
 	{
-		printf("Zombie process created, PID: %d\n", pid);
 		return (pid);
 	}
 	else if (pid == 0)
@@ -44,18 +44,20 @@ pid_t create_zombie(void)
 }
 
 /**
- * main - Creates five zombie processes.
+ * main - a C program that creates five zombie processes and displays
+ * their PIDs.
  *
  * Return: Always 0.
  */
 int main(void)
 {
 	char count = 0;
+	pid_t zombie_pids[5];
 
 	while (count < 5)
 	{
-		pid_t zombie_pid = create_zombie();
-
+		zombie_pids[count] = create_zombie();
+		printf("Zombie process created, PID: %d\n", zombie_pids[count]);
 		count++;
 	}
 
